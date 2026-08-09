@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             background-color: #020204; /* Deep void color */
@@ -20,7 +20,7 @@
         /* Fade the background into the void (black) at the bottom */
         .spatial-bg {
             opacity: 1 !important;
-            background-image: url('/assets/lab_background.png') !important;
+            background-image: url('assets/lab_background.png') !important;
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 95%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 95%);
         }
@@ -114,15 +114,13 @@
         .huge-404 {
             font-size: 15rem;
             font-weight: 800;
-            /* Give it a subtle, glass-like gradient look instead of solid text */
-            color: rgba(255, 255, 255, 0.05);
+            color: transparent; /* Fallback for browsers that don't support text fill color */
             background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.05));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1;
             margin: 0;
-            /* Subtle shadow to make it pop */
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
         }
 
         /* Adjust button to look a bit more like the image (dark with arrow) but keeping our gradient style */
@@ -216,7 +214,7 @@
                     </div>
                     
                     <div class="github-cta">
-                        <a href="/" class="primary-btn">
+                        <a href="index.html" class="primary-btn">
                             Back To Home
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="5" y1="12" x2="19" y2="12"></line>
