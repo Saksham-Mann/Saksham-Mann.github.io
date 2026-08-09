@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Assuming root deployment, /css/style.css works -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* 404 Specific overrides to bypass intro animation */
+        .spatial-bg {
+            opacity: 1 !important;
+            /* Use absolute path just in case the 404 happens on a subpath */
+            background-image: url('/assets/lab_background.png') !important;
+        }
+        .main-content {
+            opacity: 1 !important;
+            transform: scale(1) translateY(0) !important;
+            pointer-events: auto !important;
+        }
+        .glass-container {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 60vh;
+        }
+        .error-code {
+            font-size: 7rem;
+            font-weight: 700;
+            color: var(--accent, #00d2ff);
+            text-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+            margin-bottom: 0px;
+            font-family: 'Dancing Script', cursive;
+        }
+        .error-msg {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .error-desc {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 450px;
+            line-height: 1.6;
+        }
+        
+        /* Center alignment for the button */
+        .github-cta {
+            align-items: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Spatial UI -->
+    <div class="spatial-bg"></div>
+    <div class="main-content">
+        <div class="glass-container">
+            <div class="error-code">404</div>
+            <div class="error-msg">Lost in Space</div>
+            <div class="error-desc">
+                The design you are looking for has drifted into the void. It might have been removed, had its name changed, or is temporarily unavailable.
+            </div>
+            
+            <div class="github-cta">
+                <a href="/" class="primary-btn">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Return to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
