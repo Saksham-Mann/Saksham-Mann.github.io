@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVEL | Code Your Future</title>
+    <meta name="description" content="DVEL is a friendly, interactive platform where you learn coding by doing — Python, JavaScript, Data Science, and more.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/badges.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <nav class="nav-container" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="DVEL Home">
+                <span class="logo-text-full">Dynamic Virtual Education Lab</span>
+                <span class="logo-text-short">DVEL</span>
+            </a>
+            <div class="nav-actions">
+                <a href="#" class="nav-badges" aria-label="View Badges">
+                    <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>
+                    <span class="badges-text">Badges</span>
+                </a>
+                <span class="nav-divider" aria-hidden="true"></span>
+                <button class="btn-nav btn-auth-trigger" aria-label="Sign Up or Log In">Sign Up | Log In</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Scroll Sections -->
+    <main class="scroll-container">
+
+        <!-- Section 1: What is this? -->
+        <section id="section-about" class="scroll-section">
+            <div class="section-content">
+                <div class="badge-tag">
+                    <span class="material-symbols-outlined">school</span> A Better Way to Learn
+                </div>
+                <h1>Learn coding.<br>One step at a time.</h1>
+                <p class="section-lead">
+                    DVEL is a friendly, interactive space where you can learn programming by writing actual code right in your browser. No complex setup. Just code, learn, and grow.
+                </p>
+                <div class="grid-about">
+                    <div class="info-card">
+                        <span class="material-symbols-outlined card-icon">terminal</span>
+                        <h3>Learn by Doing</h3>
+                        <p>Write real code alongside each lesson and get instant feedback — no theory-only slides.</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="material-symbols-outlined card-icon">token</span>
+                        <h3>Visual Feedback</h3>
+                        <p>Abstract concepts like loops and arrays come to life through clear, interactive visual aids.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: What You Will Learn -->
+        <section id="section-learn" class="scroll-section">
+            <div class="section-content">
+                <div class="badge-tag">
+                    <span class="material-symbols-outlined">menu_book</span> What You Will Learn
+                </div>
+                <h2>Explore your pathway</h2>
+                <p class="section-subtitle">Topics broken into bite-sized, hands-on challenges — beginner friendly from day one.</p>
+                <div class="learning-grid">
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="material-symbols-outlined topic-icon">code</span>
+                            <h3>Python</h3>
+                        </div>
+                        <p>The friendly language powering AI, web backends, and data science.</p>
+                        <div class="topic-footer">
+                            <span class="tag">Beginner</span>
+                            <span class="tag">Backend</span>
+                        </div>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="material-symbols-outlined topic-icon">query_stats</span>
+                            <h3>NumPy & Pandas</h3>
+                        </div>
+                        <p>Read, clean, and make sense of real-world datasets.</p>
+                        <div class="topic-footer">
+                            <span class="tag">Data Science</span>
+                        </div>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="material-symbols-outlined topic-icon">cloud</span>
+                            <h3>FastAPI</h3>
+                        </div>
+                        <p>Build modern, fast web APIs with Python and automatic docs.</p>
+                        <div class="topic-footer">
+                            <span class="tag">Web APIs</span>
+                        </div>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="material-symbols-outlined topic-icon">devices</span>
+                            <h3>HTML, CSS & JavaScript</h3>
+                        </div>
+                        <p>Build websites from scratch that look great on any device.</p>
+                        <div class="topic-footer">
+                            <span class="tag">Frontend</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: How You Learn (no binary, clean) -->
+        <section id="section-how" class="scroll-section">
+            <div class="section-content">
+                <div class="badge-tag cyan-tag">
+                    <span class="material-symbols-outlined">integration_instructions</span> How You Will Learn
+                </div>
+                <h2>Write code.<br>See it run instantly.</h2>
+                <p class="section-subtitle">An in-browser coding environment that feels professional but never overwhelming.</p>
+                <div class="pedagogy-steps">
+                    <div class="step-card">
+                        <div class="step-num">01</div>
+                        <div class="step-text">
+                            <h4>Hands-On Sandboxes</h4>
+                            <p>Write scripts and watch them execute immediately — no terminal setup needed.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">02</div>
+                        <div class="step-text">
+                            <h4>Friendly Hints</h4>
+                            <p>Get clear, jargon-free guidance when you're stuck — not cryptic error messages.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">03</div>
+                        <div class="step-text">
+                            <h4>Coding Quests</h4>
+                            <p>Test what you know with fun, bite-sized challenges that reinforce the concepts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Benefits -->
+        <section id="section-benefits" class="scroll-section">
+            <div class="section-content">
+                <div class="badge-tag">
+                    <span class="material-symbols-outlined">done_all</span> Benefits
+                </div>
+                <h2>Built for your success</h2>
+                <p class="section-subtitle">Everything designed to remove friction on your learning journey.</p>
+                <div class="benefits-container">
+                    <div class="benefit-item">
+                        <span class="material-symbols-outlined benefit-icon">bolt</span>
+                        <div class="benefit-text">
+                            <h4>Start in Seconds</h4>
+                            <p>No installations, no config. Just open your browser and start writing code.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="material-symbols-outlined benefit-icon">workspace_premium</span>
+                        <div class="benefit-text">
+                            <h4>Earn Badges</h4>
+                            <p>Collect verifiable achievements for every milestone — share them anywhere.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="material-symbols-outlined benefit-icon">visibility</span>
+                        <div class="benefit-text">
+                            <h4>Focus-Friendly</h4>
+                            <p>A clean dark workspace that reduces eye strain and keeps you in the flow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Fixed Bottom CTA -->
+    <div class="bottom-cta-wrapper">
+        <button class="btn-start-learning" id="fixed-start-btn">
+            <span class="btn-pulse"></span>
+            START LEARNING
+            <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="js/badges.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

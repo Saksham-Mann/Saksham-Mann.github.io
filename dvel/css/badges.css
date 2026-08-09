@@ -1,0 +1,116 @@
+/* ==========================================================================
+   BADGES MODAL CSS
+   ========================================================================== */
+
+#badges-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(4, 6, 10, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#badges-modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.badges-modal {
+    background: #0c0f17;
+    border: 1px solid rgba(0, 220, 255, 0.15);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    padding: 32px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0,220,255,0.05);
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+#badges-modal-overlay.show .badges-modal {
+    transform: translateY(0) scale(1);
+}
+
+.badges-modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none; border: none; color: var(--muted);
+    cursor: pointer; font-size: 24px;
+    transition: color 0.2s;
+}
+.badges-modal-close:hover { color: #fff; }
+
+.badges-modal-header {
+    text-align: center; margin-bottom: 24px;
+}
+.badges-modal-header .material-symbols-outlined {
+    font-size: 48px; color: var(--cyan); margin-bottom: 12px;
+}
+.badges-modal-header h2 {
+    font-size: 1.6rem; color: #fff; margin-bottom: 8px;
+}
+.badges-modal-header p {
+    color: var(--muted); font-size: 0.95rem; line-height: 1.5;
+}
+
+/* Auth State */
+.badges-auth-actions {
+    display: flex; gap: 12px; justify-content: center; margin-top: 24px;
+}
+.badges-auth-actions button {
+    padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer;
+    transition: all 0.2s; font-family: var(--font-h);
+}
+.btn-modal-login {
+    background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1);
+}
+.btn-modal-login:hover { background: rgba(255,255,255,0.1); }
+.btn-modal-signup {
+    background: var(--cyan); color: #000; border: 1px solid var(--cyan);
+}
+.btn-modal-signup:hover { background: transparent; color: var(--cyan); }
+
+/* Badges Grid State */
+.badges-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 24px;
+}
+.badge-item {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 16px 12px;
+    transition: all 0.2s;
+}
+.badge-item .material-symbols-outlined {
+    font-size: 36px; margin-bottom: 10px;
+}
+.badge-item-title {
+    font-size: 0.8rem; font-weight: 600; color: #ccc;
+}
+.badge-item-status {
+    font-size: 0.7rem; color: var(--muted); margin-top: 4px;
+}
+
+/* Earned */
+.badge-item.earned {
+    background: rgba(0, 220, 255, 0.05); border-color: rgba(0, 220, 255, 0.2);
+}
+.badge-item.earned .material-symbols-outlined { color: var(--cyan); }
+.badge-item.earned .badge-item-title { color: #fff; }
+
+/* Locked */
+.badge-item.locked .material-symbols-outlined { color: #444; }
+.badge-item.locked .badge-item-title { color: #666; }
+
+@media (max-width: 500px) {
+    .badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

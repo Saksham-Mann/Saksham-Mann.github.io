@@ -14,4 +14,4 @@ The landing page of this repository is built with a modern, spatial UI design ap
 You can view the main page for this repository at: [https://saksham-mann.github.io/](https://saksham-mann.github.io/)
 
 ## Available Projects
-* *More projects coming soon! Stay tuned.*
+* [dvel](./dvel) - [Live Preview](https://saksham-mann.github.io/dvel/)

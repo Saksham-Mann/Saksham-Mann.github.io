@@ -1,0 +1,528 @@
+/* ==========================================================================
+   DVEL — EDITOR PAGE STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BODY OVERRIDES — lock page scroll, fill viewport
+   -------------------------------------------------------------------------- */
+.editor-body {
+    overflow: hidden !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-body #webgl-canvas {
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   TOOLBAR
+   -------------------------------------------------------------------------- */
+.editor-toolbar {
+    position: relative;
+    z-index: 100;
+    height: 46px;
+    min-height: 46px;
+    margin-top: 72px; /* below navbar */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background: rgba(10, 12, 20, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Back button */
+.toolbar-back {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--muted);
+    font-family: var(--font-h);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 4px 10px 4px 6px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+.toolbar-back .material-symbols-outlined {
+    font-size: 17px;
+}
+.toolbar-back:hover {
+    color: var(--cyan);
+    background: rgba(0, 220, 255, 0.06);
+}
+
+.toolbar-sep {
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 0 4px;
+}
+
+/* Course info */
+.toolbar-course {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.toolbar-course-icon {
+    font-size: 18px;
+    color: var(--purple);
+}
+.toolbar-course-name {
+    font-family: var(--font-h);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+/* Toolbar buttons */
+.toolbar-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-h);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.22s;
+}
+.toolbar-btn .material-symbols-outlined {
+    font-size: 17px;
+}
+
+/* Run button */
+.toolbar-btn-run {
+    background: rgba(0, 220, 255, 0.12);
+    color: var(--cyan);
+    border-color: rgba(0, 220, 255, 0.22);
+}
+.toolbar-btn-run:hover {
+    background: var(--cyan);
+    color: var(--bg);
+    box-shadow: 0 0 16px rgba(0, 220, 255, 0.25);
+}
+.toolbar-btn-run:active {
+    transform: scale(0.96);
+}
+
+/* Live Server button */
+.toolbar-btn-live {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+.toolbar-btn-live:hover {
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.06);
+}
+.toolbar-btn-live.active {
+    background: rgba(46, 204, 113, 0.12);
+    color: var(--green);
+    border-color: rgba(46, 204, 113, 0.3);
+    box-shadow: 0 0 12px rgba(46, 204, 113, 0.12);
+}
+.toolbar-btn-live.active:hover {
+    background: rgba(46, 204, 113, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   EDITOR LAYOUT — Flexbox main area
+   -------------------------------------------------------------------------- */
+.editor-layout {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    transition: none; /* children animate individually */
+}
+
+/* --------------------------------------------------------------------------
+   EDITOR PANEL (Monaco)
+   -------------------------------------------------------------------------- */
+.editor-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    min-width: 320px;
+    transition: flex 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+/* When live server is active, editor shrinks */
+.editor-layout.split-mode .editor-panel {
+    flex: 0 0 55%;
+}
+
+/* Panel header (shared) */
+.panel-header {
+    height: 34px;
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    background: rgba(14, 17, 26, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.panel-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-h);
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--muted);
+    padding: 2px 0;
+}
+.panel-tab.active {
+    color: var(--text);
+}
+.panel-tab-icon {
+    font-size: 15px;
+    color: var(--muted);
+}
+.panel-tab.active .panel-tab-icon {
+    color: var(--cyan);
+}
+
+.panel-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.panel-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.18s;
+}
+.panel-action-btn .material-symbols-outlined {
+    font-size: 16px;
+}
+.panel-action-btn:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Monaco container */
+#monaco-container {
+    flex: 1;
+    overflow: hidden;
+    background: #0d1017;
+}
+
+/* --------------------------------------------------------------------------
+   RESIZE HANDLE
+   -------------------------------------------------------------------------- */
+.resize-handle {
+    width: 5px;
+    cursor: col-resize;
+    background: transparent;
+    position: relative;
+    z-index: 20;
+    display: none;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+.resize-handle:hover,
+.resize-handle.dragging {
+    background: rgba(0, 220, 255, 0.2);
+}
+.resize-grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 36px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.2s;
+}
+.resize-handle:hover .resize-grip,
+.resize-handle.dragging .resize-grip {
+    background: var(--cyan);
+}
+
+.editor-layout.split-mode .resize-handle {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT PANEL (preview + terminal in split mode)
+   -------------------------------------------------------------------------- */
+.right-panel {
+    display: none;
+    flex-direction: column;
+    flex: 1 1 45%;
+    min-width: 280px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.editor-layout.split-mode .right-panel {
+    display: flex;
+    opacity: 1;
+}
+
+/* Preview */
+.preview-panel {
+    flex: 1 1 70%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.preview-header {
+    background: rgba(14, 17, 26, 0.95);
+}
+.preview-content {
+    flex: 1;
+    overflow: hidden;
+    background: #ffffff;
+    position: relative;
+}
+#preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #ffffff;
+}
+
+/* Terminal strip (inside right panel, split mode) */
+.terminal-split {
+    flex: 0 0 30%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: rgba(12, 14, 20, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.terminal-output {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 8px 14px;
+    background: #0c0e14;
+    font-family: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--text);
+}
+
+/* Scrollbar for terminal */
+.terminal-output::-webkit-scrollbar { width: 5px; }
+.terminal-output::-webkit-scrollbar-track { background: #0c0e14; }
+.terminal-output::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 3px; }
+.terminal-output::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* --------------------------------------------------------------------------
+   FLOATING TERMINAL (default mode — bottom-right overlay)
+   -------------------------------------------------------------------------- */
+.terminal-float {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 420px;
+    height: 230px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    background: rgba(12, 14, 20, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 1px rgba(0, 220, 255, 0.1);
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terminal-float.minimized {
+    height: 34px;
+}
+.terminal-float.minimized .terminal-output {
+    display: none;
+}
+
+.terminal-float-header {
+    cursor: grab;
+    border-radius: 10px 10px 0 0;
+}
+.terminal-float-header:active {
+    cursor: grabbing;
+}
+
+/* Hide floating terminal in split mode */
+.editor-layout.split-mode .terminal-float {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+/* --------------------------------------------------------------------------
+   TERMINAL OUTPUT ENTRIES
+   -------------------------------------------------------------------------- */
+.terminal-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 3px;
+    word-break: break-word;
+}
+.terminal-time {
+    flex-shrink: 0;
+    color: rgba(138, 143, 168, 0.5);
+    font-size: 0.7rem;
+    min-width: 58px;
+    padding-top: 1px;
+    font-variant-numeric: tabular-nums;
+}
+.terminal-msg {
+    flex: 1;
+}
+.terminal-entry.error .terminal-msg {
+    color: #ff6b6b;
+}
+.terminal-entry.warn .terminal-msg {
+    color: #f0c060;
+}
+.terminal-entry.info .terminal-msg {
+    color: var(--cyan);
+}
+.terminal-entry.system .terminal-msg {
+    color: var(--muted);
+    font-style: italic;
+}
+.terminal-entry.success .terminal-msg {
+    color: var(--green);
+}
+
+/* Prompt / welcome */
+.terminal-welcome {
+    color: var(--muted);
+    font-size: 0.78rem;
+    padding: 4px 0 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    margin-bottom: 8px;
+}
+.terminal-welcome strong {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .editor-layout.split-mode {
+        flex-direction: column;
+    }
+    .editor-layout.split-mode .editor-panel,
+    .editor-layout.split-mode .right-panel {
+        flex: 1 1 50%;
+        width: 100%;
+    }
+    .resize-handle {
+        display: none !important;
+    }
+    .terminal-float {
+        width: 320px;
+        height: 200px;
+        bottom: 10px;
+        right: 10px;
+    }
+    .toolbar-back-text {
+        display: none;
+    }
+    .toolbar-course-name {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .terminal-float {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+        height: 180px;
+        bottom: 8px;
+    }
+    .editor-toolbar {
+        padding: 0 10px;
+    }
+    .toolbar-btn span:not(.material-symbols-outlined) {
+        display: none;
+    }
+    .toolbar-btn {
+        padding: 5px 8px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   SELECTION HIGHLIGHT — Monaco override
+   -------------------------------------------------------------------------- */
+.monaco-editor .selected-text {
+    background: rgba(0, 220, 255, 0.12) !important;
+}
+
+/* --------------------------------------------------------------------------
+   LOADING STATE for Monaco
+   -------------------------------------------------------------------------- */
+.monaco-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--muted);
+    font-family: var(--font-h);
+    font-size: 0.9rem;
+    gap: 10px;
+}
+.monaco-loading .material-symbols-outlined {
+    animation: spin 1.2s linear infinite;
+    font-size: 20px;
+    color: var(--cyan);
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
