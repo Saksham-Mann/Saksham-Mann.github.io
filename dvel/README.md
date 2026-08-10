@@ -14,3 +14,7 @@ The DVEL interface is built with a focus on modern web aesthetics and interactiv
 
 You can view the live preview of this frontend design here:
 [https://saksham-mann.github.io/dvel/](https://saksham-mann.github.io/dvel/)
+
+---
+
+*Friendly Note: If you use this design in your project, a small backlink in your website's footer to this repository would be highly appreciated! It helps me a lot.* 

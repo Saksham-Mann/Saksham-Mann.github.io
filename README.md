@@ -15,3 +15,7 @@ You can view the main page for this repository at: [https://saksham-mann.github.
 
 ## Available Projects
 * [dvel](./dvel) - [Live Preview](https://saksham-mann.github.io/dvel/)
+
+---
+
+*Friendly Note: If you use this project or any of its components, a small backlink in your website's footer to this repository would be highly appreciated! It helps me a lot.* 😊
